@@ -12,16 +12,22 @@ function Word() {
 	this.letterArray = [];
 	this.randomWord = WordBank[Math.floor(Math.random() * WordBank.length)];
 	for (var i = 0; i < randomWord.length; i++) {
+		// var newLetter = new Letter("randomWord[i]");
+		// var showOrHide = newLetter.show(randomWord[i])
 		this.letterArray.push(randomWord[i])
 	}
 	var string = "";
 	for (var j = 0; j < letterArray.length; j++) {
-		var newLetter = new Letter("letterArray[i]");
-		string += newLetter;
+		var newLetter = new Letter("letterArray[j]");
+		var showOrHide = newLetter.show()
+		string += showOrHide;
 	}
 	console.log(string)
+	console.log(this.letterArray)
+
 }
 
 Word()
+
 
 module.exports = Word;

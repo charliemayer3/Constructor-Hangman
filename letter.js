@@ -17,7 +17,7 @@ function Letter(character) {
 	// 	// 	this.correct === false;
 	// 	// }
 	};
-	this.show = function() {
+	this.show = function(character) {
 		if (this.correct) {
 			return(this.character)
 		} else {
