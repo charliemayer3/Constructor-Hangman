@@ -6,28 +6,39 @@
 // A function that takes a character as an argument and calls the guess function on each letter object (the second function defined in Letter.js)
 
 var Letter = require("./letter.js");
-var WordBank = require("./WordBank.js")
+var string = "";
 
-function Word() {
+var Word = function(randomWord) {
 	this.letterArray = [];
-	this.randomWord = WordBank[Math.floor(Math.random() * WordBank.length)];
 	for (var i = 0; i < randomWord.length; i++) {
 		// var newLetter = new Letter("randomWord[i]");
 		// var showOrHide = newLetter.show(randomWord[i])
 		this.letterArray.push(randomWord[i])
 	}
-	var string = "";
-	for (var j = 0; j < letterArray.length; j++) {
-		var newLetter = new Letter("letterArray[j]");
+
+	for (var j = 0; j < this.letterArray.length; j++) {
+		var newLetter = new Letter(this.letterArray[j]);
 		var showOrHide = newLetter.show()
 		string += showOrHide;
 	}
-	console.log(string)
-	console.log(this.letterArray)
+
+	this.checkGuess = function(userGuess) {
+		for (var g = 0; g < this.letterArray.length; g++) {
+			var newLetter = new Letter(this.letterArray[g]);
+			var isCorrect = newLetter.check(userGuess)
+			var showOrHide = newLetter.show()
+			string += showOrHide;
+			}
+		console.log(string)	
+	}
+
+	// console.log(string)
+	// console.log(this.letterArray)
 
 }
 
-Word()
-
+// var First = new Word()
+// First.checkGuess("E")
+// console.log(string)
 
 module.exports = Word;

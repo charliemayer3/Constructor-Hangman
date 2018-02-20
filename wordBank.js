@@ -1,3 +1,3 @@
-var words = ["Seinfeld", "Game of Thrones"];
+var words = ["SEINFELDS"];
 
 module.exports = words;
