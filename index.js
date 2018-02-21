@@ -15,20 +15,28 @@ NewWord.createVisual(randomWord);
 
 var guessLetter = function() {
 	if (NewWord.string.join("") != randomWord) {
-		console.log(randomWord)
-		console.log(NewWord.string.join(""))
+		// console.log(randomWord)
+		// console.log(NewWord.string.join(""))
 
 		inquirer.prompt([
 		  {
 		    name: "guess",
 		    message: "Guess a letter!"
-		  }//, {
-		  //   name: "position",
-		  //   message: "What is your current position?"
-		  // }
+		  }
 		]).then(function(answers) {
-			NewWord.checkGuess(answers.guess.toUpperCase());
+			if ((answers.guess.match(/^[a-zA-Z]+$/)) && (answers.guess.length === 1)) {
+				NewWord.checkGuess(answers.guess.toUpperCase());
+				console.log(NewWord.checkGuess.letterBoolean)
+				if (NewWord.checkGuess.letterBoolean = true) {
+					console.log("f'n finally")
+				} else if (NewWord.checkGuess.letterBooleanF = false) {
+					console.log("you suck")
+				}
 			guessLetter();
+			} else {
+				console.log("Please pick a letter.");
+				guessLetter();
+			}
 		});
 
 	} else {

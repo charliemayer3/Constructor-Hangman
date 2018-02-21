@@ -29,24 +29,21 @@ var Word = function(randomWord) {
 		// console.log(string[0])
 		for (var g = 0; g < this.letterArray.length; g++) {
 			// console.log(g)
-			var newLetter = new Letter(this.letterArray[g]);
-			var isCorrect = newLetter.check(userGuess);
-			if (newLetter.correct) {
-				console.log(g)
+			this.newLetter = new Letter(this.letterArray[g]);
+			this.isCorrect = this.newLetter.check(userGuess);
+			// this.letterBoolean = this.newLetter.correct;
+			if (this.newLetter.correct) {
+				this.letterBoolean = true;
+				// console.log(g)
 				for (var h = 0; h < this.string.length; h++) {
 					this.string[g] = userGuess;
 					// console.log(string.join(" "))
 				}
 
+			} else {
+				this.letterBooleanF === false;
 			}
-			// var showOrHide = newLetter.show(this.letterArray[g])
-			// if (newLetter.correct) {
-			// 	// console.log(string.indexOf("_"))
-			// 	// var showOrHide = newLetter.show();
-			// 	// string.replace("_", userGuess)
-   //          	// string.indexOf([g]) === userGuess;
-   //        	console.log(userGuess)
-          	// }
+
 		}
 		// string += showOrHide
 		console.log(this.string.join(" "))	

@@ -11,10 +11,10 @@ var Letter = function(character) {
 		this.guess = guess;
 		if (this.guess === this.character) {
 			this.correct = true;
-			console.log(this.character)
+			// console.log(this.character)
 			// this.show()
 		};
-		console.log(this.correct)
+		// console.log(this.correct)
 	// 	return this.visible
 	// 	// else {
 	// 	// 	this.correct === false;
@@ -26,7 +26,7 @@ var Letter = function(character) {
 		} else {
 			return("_")
 		}
-		console.log(this.character)
+		// console.log(this.character)
 	}
 	// console.log(this.correct)
 };
