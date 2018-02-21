@@ -6,9 +6,9 @@
 // A function that takes a character as an argument and calls the guess function on each letter object (the second function defined in Letter.js)
 
 var Letter = require("./letter.js");
-var string = "";
 
 var Word = function(randomWord) {
+	this.string = [];
 	this.letterArray = [];
 	for (var i = 0; i < randomWord.length; i++) {
 		// var newLetter = new Letter("randomWord[i]");
@@ -16,20 +16,40 @@ var Word = function(randomWord) {
 		this.letterArray.push(randomWord[i])
 	}
 
-	for (var j = 0; j < this.letterArray.length; j++) {
-		var newLetter = new Letter(this.letterArray[j]);
-		var showOrHide = newLetter.show()
-		string += showOrHide;
+	this.createVisual = function() {
+		for (var j = 0; j < this.letterArray.length; j++) {
+			var newLetter = new Letter(this.letterArray[j]);
+			var showOrHide = newLetter.show(this.letterArray[j])
+			this.string.push(showOrHide);
+		}
+		console.log(this.string.join(" "))
 	}
 
 	this.checkGuess = function(userGuess) {
+		// console.log(string[0])
 		for (var g = 0; g < this.letterArray.length; g++) {
+			// console.log(g)
 			var newLetter = new Letter(this.letterArray[g]);
-			var isCorrect = newLetter.check(userGuess)
-			var showOrHide = newLetter.show()
-			string += showOrHide;
+			var isCorrect = newLetter.check(userGuess);
+			if (newLetter.correct) {
+				console.log(g)
+				for (var h = 0; h < this.string.length; h++) {
+					this.string[g] = userGuess;
+					// console.log(string.join(" "))
+				}
+
 			}
-		console.log(string)	
+			// var showOrHide = newLetter.show(this.letterArray[g])
+			// if (newLetter.correct) {
+			// 	// console.log(string.indexOf("_"))
+			// 	// var showOrHide = newLetter.show();
+			// 	// string.replace("_", userGuess)
+   //          	// string.indexOf([g]) === userGuess;
+   //        	console.log(userGuess)
+          	// }
+		}
+		// string += showOrHide
+		console.log(this.string.join(" "))	
 	}
 
 	// console.log(string)

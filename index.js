@@ -10,15 +10,30 @@ var WordBank = require("./WordBank.js");
 
 var randomWord = WordBank[Math.floor(Math.random() * WordBank.length)];
 var NewWord = new Word(randomWord);
+NewWord.createVisual(randomWord);
 
-inquirer.prompt([
-  {
-    name: "guess",
-    message: "Guess a letter!"
-  }//, {
-  //   name: "position",
-  //   message: "What is your current position?"
-  // }
-]).then(function(answers) {
-	NewWord.checkGuess(answers.guess);
-});
+
+var guessLetter = function() {
+	if (NewWord.string.join("") != randomWord) {
+		console.log(randomWord)
+		console.log(NewWord.string.join(""))
+
+		inquirer.prompt([
+		  {
+		    name: "guess",
+		    message: "Guess a letter!"
+		  }//, {
+		  //   name: "position",
+		  //   message: "What is your current position?"
+		  // }
+		]).then(function(answers) {
+			NewWord.checkGuess(answers.guess.toUpperCase());
+			guessLetter();
+		});
+
+	} else {
+		console.log("whippee")
+	}
+}
+
+guessLetter();
