@@ -8,6 +8,7 @@
 var Letter = require("./letter.js");
 
 var Word = function(randomWord) {
+	this.letterBoolean = false;
 	this.string = [];
 	this.letterArray = [];
 	for (var i = 0; i < randomWord.length; i++) {
@@ -26,23 +27,25 @@ var Word = function(randomWord) {
 	}
 
 	this.checkGuess = function(userGuess) {
+		this.letterBoolean = false;
+		console.log(this.letterBoolean)
 		// console.log(string[0])
 		for (var g = 0; g < this.letterArray.length; g++) {
 			// console.log(g)
 			this.newLetter = new Letter(this.letterArray[g]);
 			this.isCorrect = this.newLetter.check(userGuess);
 			// this.letterBoolean = this.newLetter.correct;
-			if (this.newLetter.correct) {
+			if (this.newLetter.correct === true) {
 				this.letterBoolean = true;
-				// console.log(g)
+				console.log(this.letterBoolean)
 				for (var h = 0; h < this.string.length; h++) {
 					this.string[g] = userGuess;
 					// console.log(string.join(" "))
 				}
 
-			} else {
-				this.letterBooleanF === false;
-			}
+			} //else {
+			// 	this.letterBooleanF === false;
+			// }
 
 		}
 		// string += showOrHide

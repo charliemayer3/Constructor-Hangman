@@ -11,7 +11,7 @@ var Letter = function(character) {
 		this.guess = guess;
 		if (this.guess === this.character) {
 			this.correct = true;
-			// console.log(this.character)
+			// console.log(this.correct)
 			// this.show()
 		};
 		// console.log(this.correct)

@@ -26,10 +26,10 @@ var guessLetter = function() {
 		]).then(function(answers) {
 			if ((answers.guess.match(/^[a-zA-Z]+$/)) && (answers.guess.length === 1)) {
 				NewWord.checkGuess(answers.guess.toUpperCase());
-				console.log(NewWord.checkGuess.letterBoolean)
-				if (NewWord.checkGuess.letterBoolean = true) {
+				console.log(NewWord.letterBoolean)
+				if (NewWord.letterBoolean === true) {
 					console.log("f'n finally")
-				} else if (NewWord.checkGuess.letterBooleanF = false) {
+				} else {
 					console.log("you suck")
 				}
 			guessLetter();
