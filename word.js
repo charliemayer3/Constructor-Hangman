@@ -28,7 +28,7 @@ var Word = function(randomWord) {
 
 	this.checkGuess = function(userGuess) {
 		this.letterBoolean = false;
-		console.log(this.letterBoolean)
+		// console.log(this.letterBoolean)
 		// console.log(string[0])
 		for (var g = 0; g < this.letterArray.length; g++) {
 			// console.log(g)
@@ -37,7 +37,7 @@ var Word = function(randomWord) {
 			// this.letterBoolean = this.newLetter.correct;
 			if (this.newLetter.correct === true) {
 				this.letterBoolean = true;
-				console.log(this.letterBoolean)
+				// console.log(this.letterBoolean)
 				for (var h = 0; h < this.string.length; h++) {
 					this.string[g] = userGuess;
 					// console.log(string.join(" "))
